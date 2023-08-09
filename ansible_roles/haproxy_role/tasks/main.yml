@@ -1,0 +1,25 @@
+# Основной файл задач роли HAProxy
+---
+- name: Install HAProxy
+  yum:
+    name: haproxy
+    state: present
+
+- name: Copy HAProxy configuration file
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+  notify:
+    - Restart HAProxy
+
+- name: Start HAProxy service
+  systemd:
+    name: haproxy
+    state: started
+    enabled: yes
+
+  handlers:
+    - name: Restart HAProxy
+      systemd:
+        name: haproxy
+        state: restarted

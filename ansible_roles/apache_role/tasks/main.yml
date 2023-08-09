@@ -1,0 +1,16 @@
+# Основной файл задач роли Apache
+---
+- name: Install Apache
+  yum:
+    name: httpd
+    state: present
+
+- name: Create directory for index.html
+  file:
+    path: /opt/html
+    state: directory
+
+- name: Copy index.html file
+  template:
+    src: index.html.j2
+    dest: /opt/html/index.html
