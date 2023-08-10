@@ -23,7 +23,7 @@
 - Отключать SElinux нельзя.
 - Role Ansible должны лежать в S3.
 
-### Запуск и выполнение
+### Запуск и выполнение: Terraform и Ansible
 
 1. Выполним команду terraform init в папке "terraform_project", чтобы инициализировать Terraform.
 2. Запустим terraform apply и введим yes для создания инфраструктуры.
